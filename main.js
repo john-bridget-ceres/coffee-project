@@ -48,10 +48,8 @@ function searchCoffeeNames(e) {
     console.log(userCoffeeName);
     var filteredNames = [];
     coffees.forEach(function(coffee) {
-        if (coffee.name === userCoffeeName) {
-            console.log("You found a coffee!");
-            filteredNames.push(coffee);
-            console.log(filteredNames);
+        if(coffee.name.includes(userCoffeeName)){
+                filteredNames.push(coffee);
         }
     });
     divBody.innerHTML = renderCoffees(filteredNames);
@@ -80,12 +78,12 @@ var coffees = [
 var divBody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
-
+var searchBar = document.querySelector('#user-search');
 divBody.innerHTML = renderCoffees(coffees);
 
 
 roastSelection.addEventListener('change', updateCoffees);
-//submitButton.addEventListener('click', updateCoffees);
+searchBar.addEventListener('input', searchCoffeeNames);
 submitButton.addEventListener('click', searchCoffeeNames);
 
 
