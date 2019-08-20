@@ -1,4 +1,25 @@
-"use strict"
+"use strict";
+
+//function addCoffee
+
+//User inputs a roast type and new coffee name into 2nd form
+//Gather values input by user
+//Push values onto coffees array
+//call renderCoffee();
+
+function addCoffee(e) {
+    e.preventDefault();
+    var newCoffee = {
+        id: coffees.length + 1,
+        name: addCoffeeName.value,
+        roast: addCoffeeRoast.value
+    };
+    coffees.push(newCoffee);
+    console.log(coffees);
+    divBody.innerHTML = renderCoffees(coffees);
+    console.log(coffees);
+}
+
 
 function renderCoffee(coffee) {
     // var html = '<tr class="coffee">';
@@ -92,6 +113,12 @@ divBody.innerHTML = renderCoffees(coffees);
 roastSelection.addEventListener('change', updateCoffees);
 searchBar.addEventListener('input', searchCoffeeNames);
 submitButton.addEventListener('click', searchCoffeeNames);
+
+var addButton = document.querySelector("#add-coffee-submit");
+var addCoffeeRoast = document.querySelector('#add-coffee-roast');
+var addCoffeeName = document.querySelector('#add-coffee-input');
+
+addButton.addEventListener('click', addCoffee);
 
 
 <!--select.addEventListener('change', function(e) {-->
