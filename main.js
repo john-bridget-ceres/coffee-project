@@ -54,7 +54,7 @@ function searchCoffeeNames(e) {
     var filteredNames = [];
     coffees.forEach(function(coffee) {
 
-        if(coffee.name.includes(userCoffeeName)){
+        if(coffee.name.toLowerCase().includes(userCoffeeName.toLowerCase())){
                 filteredNames.push(coffee);
 
         }
