@@ -10,6 +10,7 @@
         .coffee-img {
             background-image: url("img/coffee-banner.jpg");
             background-size: cover;
+            text-align: center;
             /*opacity: .5;*/
         }
 
@@ -32,28 +33,33 @@
 
     <main class="row">
         <div class="col">
+            <h2>Search for Coffees</h2>
             <form>
-                <label for="roast-selection"></label>
-                <select id="roast-selection">
-                    <option>all</option>
-                    <option>light</option>
-                    <option>medium</option>
-                    <option>dark</option>
-                </select>
-                <input id="user-search" class="form-control mr-sm-2" type="search" placeholder="Search"
-                       aria-label="Search">
-                <input id="submit" type="submit"/>
+                <div class="form-row">
+                    <label for="roast-selection"></label>
+                    <select id="roast-selection" class = "col-2">
+                        <option>all</option>
+                        <option>light</option>
+                        <option>medium</option>
+                        <option>dark</option>
+                    </select>
+                    <input id="user-search" class="form-control mr-sm-2 col-8 offset-md-1" type="search"
+                           aria-label="Search">
+                </div>
+                <input id="submit" type="submit" class="mt-2"/>
             </form>
-            <h1>Add new coffees</h1>
+            <h2 class="mt-5">Add New Coffees</h2>
             <form>
-                <label for="add-coffee-roast"></label>
-                <select id="add-coffee-roast">
-                    <option>light</option>
-                    <option>medium</option>
-                    <option>dark</option>
-                </select>
-                <input id="add-coffee-input" class="form-control mr-sm-2">
-                <input id="add-coffee-submit" type="submit"/>
+                <div class = "form-row">
+                    <label for="add-coffee-roast"></label>
+                    <select id="add-coffee-roast" class ="col-2">
+                        <option>light</option>
+                        <option>medium</option>
+                        <option>dark</option>
+                    </select>
+                    <input id="add-coffee-input" class="form-control mr-sm-2 col-8 offset-md-1">
+                </div>
+                <input id="add-coffee-submit" type="submit" class="mt-2"/>
             </form>
         </div>
 
