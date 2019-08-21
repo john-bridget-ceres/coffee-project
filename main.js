@@ -104,9 +104,8 @@ if(localStorage.getItem('customCoffees')=== null){
     ];
 
 }else{
-    var coffees =
-
-
+    //var coffees = localStorage.getItem('customCoffees');
+    var coffees = JSON.parse(window.localStorage.getItem('customCoffees'));
 }
 
 
@@ -128,7 +127,7 @@ var addCoffeeName = document.querySelector('#add-coffee-input');
 
 addButton.addEventListener('click', addCoffee);
 
-console.log(JSON.parse(window.localStorage.getItem('customCoffees')));
+//console.log(JSON.parse(window.localStorage.getItem('customCoffees')));
 <!--select.addEventListener('change', function(e) {-->
 <!--    map.setZoom(select.value);-->
 <!--});-->
