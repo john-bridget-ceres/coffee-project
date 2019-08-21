@@ -2,11 +2,6 @@
 
 //function addCoffee
 
-//User inputs a roast type and new coffee name into 2nd form
-//Gather values input by user
-//Push values onto coffees array
-//call renderCoffee();
-
 function addCoffee(e) {
     e.preventDefault();
     var newCoffee = {
@@ -15,25 +10,21 @@ function addCoffee(e) {
         roast: addCoffeeRoast.value
     };
     coffees.push(newCoffee);
-
     localStorage.setItem("customCoffees", JSON.stringify(coffees));
     divBody.innerHTML = renderCoffees(coffees);
 }
 
+// Create a single div to display one coffee
 
 function renderCoffee(coffee) {
-    // var html = '<tr class="coffee">';
-    // html += '<td>' + coffee.id + '</td>';
-    // html += '<td>' + coffee.name + '</td>';
-    // html += '<td>' + coffee.roast + '</td>';
-    // html += '</tr>';
     var html =  '<div class="coffee">';
     html += '<h2>' + coffee.name + '</h2>';
     html += '<p>' + coffee.roast + '</p>';
     html += '</div>';
-
     return html;
 }
+
+// Run through all the coffees in the coffee array, and call the function above to display them
 
 function renderCoffees(coffees) {
     var html = '';
@@ -43,7 +34,7 @@ function renderCoffees(coffees) {
     return html;
 }
 
-
+// Display only coffees that match with selected roast type
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -62,14 +53,10 @@ function updateCoffees(e) {
     }
 }
 
+//allow user to search for matching coffee names as they type
+
 function searchCoffeeNames(e) {
     e.preventDefault();
-    //collect a string value from the user in the search bar & assign to variable
-    //create an empty array to store the results
-    //run a foreach loop through the coffee array
-    //check if the user value matches a name from coffee array
-    //if so, push to the empty array
-    //change divBody.innerHTML to call renderCoffees with the no-longer empty array
     var userCoffeeName = document.getElementById("user-search").value;
     var filteredNames = [];
     coffees.forEach(function(coffee) {
@@ -82,7 +69,7 @@ function searchCoffeeNames(e) {
     divBody.innerHTML = renderCoffees(filteredNames);
 }
 
-
+// When defining coffee variable -- check to see if coffee array exists (has been updated) in local storage
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 if(localStorage.getItem('customCoffees')=== null){
@@ -104,18 +91,14 @@ if(localStorage.getItem('customCoffees')=== null){
     ];
 
 }else{
-    //var coffees = localStorage.getItem('customCoffees');
     var coffees = JSON.parse(window.localStorage.getItem('customCoffees'));
 }
 
-
-// localStorage.setItem("customCoffees", JSON.stringify(coffees));
 var divBody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 var searchBar = document.querySelector('#user-search');
 divBody.innerHTML = renderCoffees(coffees);
-
 
 roastSelection.addEventListener('change', updateCoffees);
 searchBar.addEventListener('input', searchCoffeeNames);
@@ -126,8 +109,3 @@ var addCoffeeRoast = document.querySelector('#add-coffee-roast');
 var addCoffeeName = document.querySelector('#add-coffee-input');
 
 addButton.addEventListener('click', addCoffee);
-
-//console.log(JSON.parse(window.localStorage.getItem('customCoffees')));
-<!--select.addEventListener('change', function(e) {-->
-<!--    map.setZoom(select.value);-->
-<!--});-->
