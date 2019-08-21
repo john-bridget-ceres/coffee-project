@@ -17,7 +17,7 @@ function addCoffee(e) {
 // Create a single div to display one coffee
 
 function renderCoffee(coffee) {
-    var html =  '<div class="coffee">';
+    var html =  '<div class="coffee col-sm-6">';
     html += '<h2>' + coffee.name + '</h2>';
     html += '<p>' + coffee.roast + '</p>';
     html += '</div>';
