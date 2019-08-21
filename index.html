@@ -6,13 +6,29 @@
     <title>Fancy Coffee Company &copy;</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .coffee-img {
+            background-image: url("img/coffee-banner.jpg");
+            background-size: cover;
+            /*opacity: .5;*/
+        }
+
+        .coffee-img h1 {
+            opacity: .5;
+            background: white;
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
-    <header class="row justify-content-center">
-        <h1>Coffee!</h1>
-    </header>
+<!--    <header class="row justify-content-center">-->
+<!--        <h1>Coffee!</h1>-->
+<!--    </header>-->
+
+    <div class="jumbotron d-md-block jc-jumbo justify-content-center coffee-img">
+        <h1 class="display-4 justify-content-center">Welcome to Fancy Coffee Company!</h1>
+    </div>
 
     <main class="row">
         <div class="col">
