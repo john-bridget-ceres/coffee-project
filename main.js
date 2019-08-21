@@ -10,14 +10,14 @@
 function addCoffee(e) {
     e.preventDefault();
     var newCoffee = {
-        id: coffees.length + 1,
+        id: coffees.length +1,
         name: addCoffeeName.value,
         roast: addCoffeeRoast.value
     };
     coffees.push(newCoffee);
-    console.log(coffees);
+
+    localStorage.setItem("customCoffees", JSON.stringify(coffees));
     divBody.innerHTML = renderCoffees(coffees);
-    console.log(coffees);
 }
 
 
@@ -49,7 +49,7 @@ function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
-
+    JSON.parse(window.localStorage.getItem('customCoffees'));
     if(selectedRoast === 'all'){
         divBody.innerHTML = renderCoffees(coffees);
     }else{
@@ -71,7 +71,6 @@ function searchCoffeeNames(e) {
     //if so, push to the empty array
     //change divBody.innerHTML to call renderCoffees with the no-longer empty array
     var userCoffeeName = document.getElementById("user-search").value;
-    console.log(userCoffeeName);
     var filteredNames = [];
     coffees.forEach(function(coffee) {
 
@@ -86,23 +85,32 @@ function searchCoffeeNames(e) {
 
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-var coffees = [
-    {id: 1, name: 'Light City', roast: 'light'},
-    {id: 2, name: 'Half City', roast: 'light'},
-    {id: 3, name: 'Cinnamon', roast: 'light'},
-    {id: 4, name: 'City', roast: 'medium'},
-    {id: 5, name: 'American', roast: 'medium'},
-    {id: 6, name: 'Breakfast', roast: 'medium'},
-    {id: 7, name: 'High', roast: 'dark'},
-    {id: 8, name: 'Continental', roast: 'dark'},
-    {id: 9, name: 'New Orleans', roast: 'dark'},
-    {id: 10, name: 'European', roast: 'dark'},
-    {id: 11, name: 'Espresso', roast: 'dark'},
-    {id: 12, name: 'Viennese', roast: 'dark'},
-    {id: 13, name: 'Italian', roast: 'dark'},
-    {id: 14, name: 'French', roast: 'dark'},
-];
+if(localStorage.getItem('customCoffees')=== null){
+    var coffees = [
+        {id: 1, name: 'Light City', roast: 'light'},
+        {id: 2, name: 'Half City', roast: 'light'},
+        {id: 3, name: 'Cinnamon', roast: 'light'},
+        {id: 4, name: 'City', roast: 'medium'},
+        {id: 5, name: 'American', roast: 'medium'},
+        {id: 6, name: 'Breakfast', roast: 'medium'},
+        {id: 7, name: 'High', roast: 'dark'},
+        {id: 8, name: 'Continental', roast: 'dark'},
+        {id: 9, name: 'New Orleans', roast: 'dark'},
+        {id: 10, name: 'European', roast: 'dark'},
+        {id: 11, name: 'Espresso', roast: 'dark'},
+        {id: 12, name: 'Viennese', roast: 'dark'},
+        {id: 13, name: 'Italian', roast: 'dark'},
+        {id: 14, name: 'French', roast: 'dark'},
+    ];
 
+}else{
+    var coffees =
+
+
+}
+
+
+// localStorage.setItem("customCoffees", JSON.stringify(coffees));
 var divBody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
@@ -120,7 +128,7 @@ var addCoffeeName = document.querySelector('#add-coffee-input');
 
 addButton.addEventListener('click', addCoffee);
 
-
+console.log(JSON.parse(window.localStorage.getItem('customCoffees')));
 <!--select.addEventListener('change', function(e) {-->
 <!--    map.setZoom(select.value);-->
 <!--});-->
